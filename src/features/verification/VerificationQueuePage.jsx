@@ -5,7 +5,7 @@ import SelectMenu from '../../components/ui/SelectMenu'
 import Switch from '../../components/ui/Switch'
 import { listAdvocates } from '../../services/verificationService'
 import FiltersMenu from './FiltersMenu'
-import QueuePagination from './QueuePagination'
+import Pagination from '../../components/common/Pagination'
 import VerificationStatusTabs from './VerificationStatusTabs'
 import VerificationTable from './VerificationTable'
 import { PAGE_SIZE, applyFilters, countByStatus, sortAdvocates } from './queueSelectors'
@@ -75,7 +75,7 @@ function VerificationQueuePage() {
           search={search}
           sort={state.sort}
         />
-        <QueuePagination
+        <Pagination
           page={page}
           pageCount={pageCount}
           from={(page - 1) * PAGE_SIZE + 1}

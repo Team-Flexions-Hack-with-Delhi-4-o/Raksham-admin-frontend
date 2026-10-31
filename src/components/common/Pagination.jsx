@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-function QueuePagination({ page, pageCount, from, to, total, onChange }) {
+function Pagination({ page, pageCount, from, to, total, onChange }) {
   const btn = 'grid size-10 place-items-center rounded-lg border border-line bg-white font-semibold disabled:text-[#c2c2c8] disabled:cursor-not-allowed'
 
   return (
@@ -30,4 +30,4 @@ function QueuePagination({ page, pageCount, from, to, total, onChange }) {
   )
 }
 
-export default QueuePagination
+export default Pagination

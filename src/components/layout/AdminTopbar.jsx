@@ -3,13 +3,19 @@ import { Menu, Search } from 'lucide-react'
 import NotificationsMenu from './NotificationsMenu'
 import ProfileMenu from './ProfileMenu'
 
+const SEARCH_PLACEHOLDERS = [
+  ['/verification-queue', 'Search advocates, reference ID or practice area...'],
+  ['/legal-resources', 'Search resources, laws, schemes or keywords...'],
+  ['/user-management', 'Search by name, user ID, phone number or email...'],
+]
+
 function AdminTopbar({ onMenuClick }) {
   const { pathname } = useLocation()
   const [params, setParams] = useSearchParams()
   const query = params.get('q') ?? ''
-  const placeholder = pathname.startsWith('/verification-queue')
-    ? 'Search advocates, reference ID or practice area...'
-    : 'Search ticket ID, user ID, resource or keyword...'
+  const placeholder =
+    SEARCH_PLACEHOLDERS.find(([prefix]) => pathname.startsWith(prefix))?.[1] ??
+    'Search ticket ID, user ID, resource or keyword...'
 
   const setQuery = (value) =>
     setParams(
